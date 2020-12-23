@@ -19,7 +19,7 @@ func InitServer(port string) Server {
 }
 
 func (s *Server) Run() error {
-	fmt.Printf("Starting server on port :%s\n", s.port)
+	fmt.Printf("Starting server on port %s\n", s.port)
 
 	l, err := net.Listen("tcp", s.port)
 	if err != nil {

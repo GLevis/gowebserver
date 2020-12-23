@@ -1,10 +1,10 @@
 package main
 
 import (
- 	"github.com/GLevis/gowebserver"
+ 	"github.com/GLevis/gowebserver/pkg"
  )
 
 func main() {
-	server := server.InitServer("80")
+	server := server.InitServer(":8080")
 	server.Run()
 }
