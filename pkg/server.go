@@ -2,6 +2,7 @@ package server
 
 import (
 	"fmt"
+	"log"
 	"net"
 )
 
@@ -9,7 +10,7 @@ type Server struct {
 	port string
 }
 
-func InitServer(port) Server {
+func InitServer(port string) Server {
 	server := Server{
 		port: port,
 	}
