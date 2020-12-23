@@ -9,10 +9,11 @@ type Server struct {
 	port string
 }
 
-func InitServer(port) {
+func InitServer(port) Server {
 	server := Server{
-		port: port
+		port: port,
 	}
+	return server
 }
 
 func (s *Server) Run() error {
