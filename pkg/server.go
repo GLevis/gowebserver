@@ -11,7 +11,7 @@ type Server struct {
 
 func InitServer(port) {
 	server := Server{
-		port: port
+		port: port,
 	}
 }
 
