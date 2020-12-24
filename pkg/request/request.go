@@ -12,7 +12,7 @@ type Request struct {
 	headers map[string]string
 }
 
-func parseRequest(c net.Conn) (*Request, error){
+func ParseRequest(c net.Conn) (*Request, error){
 	var r Request
 	r.headers = make(map[string]string)
 	scanner := bufio.NewScanner(c)
