@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"net"
-	"io"
 
 	"github.com/GLevis/gowebserver/pkg/request"
 )
@@ -40,10 +39,10 @@ func (s *Server) Run() error {
 		// multiple connections may be served concurrently.
 		go func(c net.Conn) {
 			// Process request
-			request := parseRequest(c)
-			fmt.Printf(request.method + "\n")
-			fmt.Printf(request.target + "\n")
-			fmt.Printf(request.version + "\n")
+			r := request.parseRequest(c)
+			fmt.Printf(r.method + "\n")
+			fmt.Printf(r.target + "\n")
+			fmt.Printf(r.version + "\n")
 			// Shut down the connection.
 			c.Close()
 		}(conn)
