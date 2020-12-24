@@ -12,6 +12,14 @@ type Request struct {
 	headers map[string]string
 }
 
+type UnparsableRequestError struct {
+	s string
+}
+
+func (err *UnparsableRequestError) Error() string {
+	return err.s
+}
+
 func ParseRequest(c net.Conn) (*Request, error){
 	var r Request
 	r.headers = make(map[string]string)
