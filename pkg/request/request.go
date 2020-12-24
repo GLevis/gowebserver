@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"net"
 	"strings"
+	"fmt"
 )
 type Request struct {
 	Method string
@@ -26,6 +27,7 @@ func ParseRequest(c net.Conn) (*Request, error){
 	scanner := bufio.NewScanner(c)
 	scanner.Scan()
 	requestLine := strings.Split(scanner.Text(), " ")
+	fmt.Printf("%s\n", requestLine)
 	r.Method = requestLine[0]
 	r.Target = requestLine[1]
 	r.Version = requestLine[2]
