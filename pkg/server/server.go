@@ -6,7 +6,7 @@ import (
 	"net"
 	"io"
 
-	"github.com/GLevis/gowebserver/pkg"
+	"github.com/GLevis/gowebserver/pkg/request"
 )
 
 type Server struct {

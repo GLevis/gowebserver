@@ -1,7 +1,7 @@
 package main
 
 import (
- 	"github.com/GLevis/gowebserver/pkg"
+ 	"github.com/GLevis/gowebserver/pkg/server"
  )
 
 func main() {
