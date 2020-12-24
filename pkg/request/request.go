@@ -32,9 +32,10 @@ func ParseRequest(c net.Conn) (*Request, error){
 	r.Target = requestLine[1]
 	r.Version = requestLine[2]
 	for scanner.Scan() {
-		fmt.Printf("%s\n", scanner.Text())
 		line := strings.Split(scanner.Text(), ":")
-		fmt.Printf("line: %s\n", line)
+		if len(line) == 0 {
+			break
+		}
 		if len(line) < 2 {
 			return nil, &UnparsableRequestError{"Error Parsing the Headers"}
 		}
