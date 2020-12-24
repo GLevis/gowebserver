@@ -39,7 +39,10 @@ func (s *Server) Run() error {
 		// multiple connections may be served concurrently.
 		go func(c net.Conn) {
 			// Process request
-			r := request.ParseRequest(c)
+			r, err := request.ParseRequest(c)
+			if err != nil {
+				log.Fatal(err)
+			}
 			fmt.Printf(r.method + "\n")
 			fmt.Printf(r.target + "\n")
 			fmt.Printf(r.version + "\n")
