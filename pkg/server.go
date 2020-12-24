@@ -5,6 +5,8 @@ import (
 	"log"
 	"net"
 	"io"
+
+	"github.com/GLevis/gowebserver/pkg"
 )
 
 type Server struct {
@@ -38,7 +40,10 @@ func (s *Server) Run() error {
 		// multiple connections may be served concurrently.
 		go func(c net.Conn) {
 			// Process request
-			io.Copy(c, c)
+			request := parseRequest(c)
+			fmt.Printf(request.method + "\n")
+			fmt.Printf(request.target + "\n")
+			fmt.Printf(request.version + "\n")
 			// Shut down the connection.
 			c.Close()
 		}(conn)
