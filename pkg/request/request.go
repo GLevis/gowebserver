@@ -23,6 +23,9 @@ func ParseRequest(c net.Conn) (*Request, error){
 	r.Version = requestLine[2]
 	for scanner.Scan() {
 		line := strings.Split(scanner.Text(), ":")
+		if len(line) < 2 {
+			return nil, &UnparsableRequestError{"Error Parsing the Headers"}
+		}
 		r.headers[line[0]] = line[1]
 	}
 	return &r, nil
