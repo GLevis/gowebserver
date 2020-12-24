@@ -43,9 +43,9 @@ func (s *Server) Run() error {
 			if err != nil {
 				log.Fatal(err)
 			}
-			fmt.Printf(r.method + "\n")
-			fmt.Printf(r.target + "\n")
-			fmt.Printf(r.version + "\n")
+			fmt.Printf(r.Method + "\n")
+			fmt.Printf(r.Target + "\n")
+			fmt.Printf(r.Version + "\n")
 			// Shut down the connection.
 			c.Close()
 		}(conn)

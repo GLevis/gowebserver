@@ -6,9 +6,9 @@ import (
 	"strings"
 )
 type Request struct {
-	method string
-	target string
-	version string
+	Method string
+	Target string
+	Version string
 	headers map[string]string
 }
 
@@ -18,9 +18,9 @@ func ParseRequest(c net.Conn) (*Request, error){
 	scanner := bufio.NewScanner(c)
 	scanner.Scan()
 	requestLine := strings.Split(scanner.Text(), " ")
-	r.method = requestLine[0]
-	r.target = requestLine[1]
-	r.version = requestLine[2]
+	r.Method = requestLine[0]
+	r.Target = requestLine[1]
+	r.Version = requestLine[2]
 	for scanner.Scan() {
 		line := strings.Split(scanner.Text(), ":")
 		r.headers[line[0]] = line[1]
