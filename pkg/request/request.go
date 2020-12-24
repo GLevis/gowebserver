@@ -26,7 +26,7 @@ func ParseRequest(c net.Conn) (*Request, error){
 	r.headers = make(map[string]string)
 	scanner := bufio.NewScanner(c)
 	scanner.Scan()
-	requestLine := strings.Split(scanner.Text(), " ")
+	requestLine := strings.Split(scanner.Text(), ' ')
 	fmt.Printf("%s\n", requestLine)
 	r.Method = requestLine[0]
 	r.Target = requestLine[1]
